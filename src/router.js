@@ -22,6 +22,7 @@ export const setRoutes = (routes) => {
 // assign ROUTES
 
   ROUTES = routes
+  console.log(ROUTES)
 }
 
 const queryStringToObject = (queryString) => {
