@@ -4,7 +4,7 @@ import Home from './views/home.js';
 import About from './views/about.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 import Error from './views/error.js';
-              
+
 
 //Ejemplo de definición de rutas:
 
@@ -18,7 +18,7 @@ const rootElement = document.getElementById("root");
 
 setRoutes(routes)
 
-window.addEventListener("DOMContentLoaded",() => {
+window.addEventListener("DOMContentLoaded", () => {
     setRootEl(rootElement);
     onURLChange(window.location)
 })
