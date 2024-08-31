@@ -17,7 +17,7 @@ export const setRoutes = (routes) => {
 
     if (!routes["/error"]) {
 
-        throw new Error("routes debe definir una ruta error");
+        throw new Error("Esta ruta no existe");
     }
     // assign ROUTES
 
@@ -27,35 +27,35 @@ export const setRoutes = (routes) => {
 
 const queryStringToObject = (queryString) => {
     // convert query string to URLSearchParams
+    //const valores = window.location.search;
     // convert URLSearchParams to an object
     // return the object
 }
 
 const renderView = (pathname, props = {}) => {
     // clear the root element
-    const root = document.getElementById("root")
-    root.innerHTML = ""
+   const root = document.getElementById("root")
+
+    rootEl.innerHTML = ""
+
+
+    
 
     // find the correct view in ROUTES for the pathname
     // in case not found render the error view
-    const view = ROUTES[pathname] || ROUTES["/error"];
-    const viewElement = document.createElement("div");
+    const view = ROUTES[location.pathname] 
     console.log(view)
     // render the correct view passing the value of props
-    if (typeof view == "function") {
-        viewElement.appendChild(view(props));
-
-
-    } else {
-        viewElement.innerHTML = "<h1>Vista no encontrada</h1>"
-
-    }
+   /*if (!view){
+    navigateTo("/error")
+   }*/
     // add the view element to the DOM root element
-    root.appendChild(viewElement)
+    const component = view (props)
+    rootEl.appendChild(view)
 
 
 }
-
+// navigteto actualiza la URL y renderiza la vista correspondiente
 export const navigateTo = (pathname, props = {}) => {
     // Update window history with pushState
     window.history.pushState({}, '', pathname);
@@ -69,6 +69,8 @@ export const onURLChange = (location) => {
 
     //parse the location for the pathname and search params
     const { pathname, search } = location
+
+
     console.log(location)
 
     // convert the search params to an object
@@ -83,3 +85,9 @@ export const onURLChange = (location) => {
 
 
 }
+
+window.addEventListener("popstate", (event) => {
+    // Recupera la ruta actual y cualquier estado almacenado en el historial
+    const location = window.location;
+    onURLChange(location); // Llama a tu función onURLChange para manejar la navegación
+});
