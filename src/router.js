@@ -22,48 +22,89 @@ export const setRoutes = (routes) => {
     // assign ROUTES
 
     ROUTES = routes
-    console.log(ROUTES)
+
 }
 
 const queryStringToObject = (queryString) => {
-    // convert query string to URLSearchParams
-    //const valores = window.location.search;
-    // convert URLSearchParams to an object
-    // return the object
-}
+    // Convertir query string a URLSearchParams
+    const urlParams = new URLSearchParams(queryString);
+
+    // Crear un objeto vacío
+    const paramsObject = {};
+
+    // Iterar sobre los pares clave-valor de URLSearchParams
+    urlParams.forEach((value, key) => {
+        paramsObject[key] = value;
+    });
+
+    // Devolver el objeto
+    return paramsObject;
+};
 
 const renderView = (pathname, props = {}) => {
-    // clear the root element
-   const root = document.getElementById("root")
+    // Limpiar el elemento root
+    const root = document.getElementById("root");
+    root.innerHTML = "";
 
-    rootEl.innerHTML = ""
+    // Buscar la vista correcta en ROUTES para el pathname
+    // Manejar rutas dinámicas si es necesario
+    let view = ROUTES[pathname];
 
+    // Si no se encuentra la ruta exacta, buscar rutas dinámicas
+    if (!view) {
+        for (const route in ROUTES) {
+            const routeParts = route.split('/');
+            const pathParts = pathname.split('/');
 
-    
+            if (routeParts.length !== pathParts.length) continue;
 
-    // find the correct view in ROUTES for the pathname
-    // in case not found render the error view
-    const view = ROUTES[location.pathname] 
-    console.log(view)
-    // render the correct view passing the value of props
-   /*if (!view){
-    navigateTo("/error")
-   }*/
-    // add the view element to the DOM root element
-    const component = view (props)
-    rootEl.appendChild(view)
+            let isMatch = true;
+            const params = {};
 
+            for (let i = 0; i < routeParts.length; i++) {
+                if (routeParts[i].startsWith(':')) {
+                    const paramName = routeParts[i].slice(1);
+                    params[paramName] = pathParts[i];
+                } else if (routeParts[i] !== pathParts[i]) {
+                    isMatch = false;
+                    break;
+                }
+            }
 
-}
+            if (isMatch) {
+                view = ROUTES[route];
+                props = { ...props, ...params };
+                break;
+            }
+        }
+    }
+
+    // Si no se encuentra ninguna vista, navegar a la ruta de error
+    if (!view) {
+        navigateTo("/error");
+        return;
+    }
+
+    // Renderizar la vista correcta pasando los valores de props
+    const component = view(props);
+    root.appendChild(component);
+};
+
 // navigteto actualiza la URL y renderiza la vista correspondiente
 export const navigateTo = (pathname, props = {}) => {
-    // Update window history with pushState
+    const search = window.location.search;
+    const queryParams = queryStringToObject(search);
+
+    // Combina props con los parámetros de búsqueda
+    const combinedProps = { ...props, ...queryParams };
+
+    // Actualiza el historial de la ventana con pushState
     window.history.pushState({}, '', pathname);
 
-    // Render the view with the pathname and props
-    renderView(pathname, props);
+    // Renderiza la vista con el pathname y los props combinados
+    renderView(pathname, combinedProps);
+};
 
-}
 
 export const onURLChange = (location) => {
 

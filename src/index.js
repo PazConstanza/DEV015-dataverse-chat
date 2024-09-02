@@ -9,10 +9,11 @@ import {Error} from './views/error.js';
 //Ejemplo de definición de rutas:
 
 const routes = {
-    "/": Home,
-    "/campeona": About,
-    "/error": Error
+  "/": Home,
+  "/campeona/:name": About, // Ruta dinamica 
+  "/error": Error
 };
+
 
 const rootElement = document.getElementById("root");
 rootElement.appendChild(Home()); 

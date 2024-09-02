@@ -1,3 +1,6 @@
+import { navigateTo } from "../router.js";
+
+
 export const renderCard = (data) => {
     const contenedor = document.createElement("div");
     //contenedor.classList.add("divTarjeta")
@@ -13,7 +16,7 @@ export const renderCard = (data) => {
         imgElemento.src = campeona.imageUrl;           // Establece la fuente de la imagen
         imgElemento.alt = campeona.name;               // Texto alternativo si no carga la imagen
         imgElemento.addEventListener("click", () => {
-            navigateTo("/" + campeona.name, { data: campeona });
+            navigateTo("/campeona/" + campeona.name, { data: campeona });
 
         });
         imgElemento.classList.add("imagen");           // Asigna una clase "imagen" para utilizarlo con CSS
