@@ -1,7 +1,6 @@
-const Error = (props) => {
-    const viewEl = document.createElement('div');
-    viewEl.textContent = 'Error';
+export const Error = (props) => {
+    const viewEl = document.createElement('h1');
+    viewEl.textContent = 'Ruta no encontrada';
     return viewEl;
-  }
-  
-  export default Error
+}
+

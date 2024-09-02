@@ -4,82 +4,131 @@ let rootEl;
 
 export const setRootEl = (el) => {
     // assign rootEl
-  rootEl = el
+    rootEl = el
 }
 
 export const setRoutes = (routes) => {
-  // optional Throw errors if routes isn't an object
+    // optional Throw errors if routes isn't an object
 
-  if (typeof routes != "object" || routes == null){
-    throw new Error ("routes no es un objeto");
-  }
-// optional Throw errors if routes doesn't define an /error route
+    if (typeof routes != "object" || routes == null) {
+        throw new Error("routes no es un objeto");
+    }
+    // optional Throw errors if routes doesn't define an /error route
 
-  if (!routes["/error"]){
-    
-    throw new Error ("routes debe definir una ruta error");
-  }
-// assign ROUTES
+    if (!routes["/error"]) {
 
-  ROUTES = routes
-  console.log(ROUTES)
+        throw new Error("Esta ruta no existe");
+    }
+    // assign ROUTES
+
+    ROUTES = routes
+
 }
 
 const queryStringToObject = (queryString) => {
-  // convert query string to URLSearchParams
-  // convert URLSearchParams to an object
-  // return the object
-}
+    // Convertir query string a URLSearchParams
+    const urlParams = new URLSearchParams(queryString);
 
-const renderView = (pathname, props={}) => {
-    // clear the root element
-    const root = document.getElementById("root")
-    root.innerHTML = ""
-    
-    // find the correct view in ROUTES for the pathname
-    // in case not found render the error view
-    const view = ROUTES[pathname] || ROUTES["/error"];
-    const viewElement = document.createElement("div");
+    // Crear un objeto vacío
+    const paramsObject = {};
 
-    // render the correct view passing the value of props
-    if (typeof view == "function"){
-        viewElement.appendChild(view(props));
+    // Iterar sobre los pares clave-valor de URLSearchParams
+    urlParams.forEach((value, key) => {
+        paramsObject[key] = value;
+    });
 
-        
-    } else{
-        viewElement.innerHTML = "<h1>Vista no encontrada</h1>"
-     
+    // Devolver el objeto
+    return paramsObject;
+};
+
+const renderView = (pathname, props = {}) => {
+    // Limpiar el elemento root
+    const root = document.getElementById("root");
+    root.innerHTML = "";
+
+    // Buscar la vista correcta en ROUTES para el pathname
+    // Manejar rutas dinámicas si es necesario
+    let view = ROUTES[pathname];
+
+    // Si no se encuentra la ruta exacta, buscar rutas dinámicas
+    if (!view) {
+        for (const route in ROUTES) {
+            const routeParts = route.split('/');
+            const pathParts = pathname.split('/');
+
+            if (routeParts.length !== pathParts.length) continue;
+
+            let isMatch = true;
+            const params = {};
+
+            for (let i = 0; i < routeParts.length; i++) {
+                if (routeParts[i].startsWith(':')) {
+                    const paramName = routeParts[i].slice(1);
+                    params[paramName] = pathParts[i];
+                } else if (routeParts[i] !== pathParts[i]) {
+                    isMatch = false;
+                    break;
+                }
+            }
+
+            if (isMatch) {
+                view = ROUTES[route];
+                props = { ...props, ...params };
+                break;
+            }
+        }
     }
-    // add the view element to the DOM root element
-    root.appendChild(viewElement)
 
-  
-} 
+    // Si no se encuentra ninguna vista, navegar a la ruta de error
+    if (!view) {
+        navigateTo("/error");
+        return;
+    }
 
-export const navigateTo = (pathname, props={}) => {
-    // Update window history with pushState
- window.history.pushState({}, '', pathname);
+    // Renderizar la vista correcta pasando los valores de props
+    const component = view(props);
+    root.appendChild(component);
+};
 
- // Render the view with the pathname and props
- renderView(pathname, props);
- 
-}
+// navigteto actualiza la URL y renderiza la vista correspondiente
+export const navigateTo = (pathname, props = {}) => {
+    const search = window.location.search;
+    const queryParams = queryStringToObject(search);
+
+    // Combina props con los parámetros de búsqueda
+    const combinedProps = { ...props, ...queryParams };
+
+    // Actualiza el historial de la ventana con pushState
+    window.history.pushState({}, '', pathname);
+
+    // Renderiza la vista con el pathname y los props combinados
+    renderView(pathname, combinedProps);
+};
+
 
 export const onURLChange = (location) => {
 
     //parse the location for the pathname and search params
- const { pathname, search } = location
- console.log(location)
+    const { pathname, search } = location
 
- // convert the search params to an object
- const searchParams = new URLSearchParams(search);
- const paramsObject = {};
- searchParams.forEach((value, key) => {
- paramsObject[key] = value;
- });
- // render the view with the pathname and object
- renderView(pathname, paramsObject);
-  
-  
-  
+
+    console.log(location)
+
+    // convert the search params to an object
+    const searchParams = new URLSearchParams(search);
+    const paramsObject = {};
+    searchParams.forEach((value, key) => {
+        paramsObject[key] = value;
+    });
+    // render the view with the pathname and object
+    renderView(pathname, paramsObject);
+
+
+
 }
+
+window.addEventListener("popstate", (event) => {
+    // Recupera la ruta actual y cualquier estado almacenado en el historial
+    const location = window.location;
+    onURLChange(location); // Llama a tu función onURLChange para manejar la navegación
+});

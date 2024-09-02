@@ -1,21 +1,29 @@
 // src/views/Home.js
-import { navigateTo } from "../router.js";
+
+import { data } from '../data/dataset.js';
+import { header } from '../components/header.js'
+import { footer } from '../components/footer.js'
+import { renderCard } from "../components/renderCard.js";
+import { blockApiKey } from '../components/blockApiKey.js';
+//import { filterData } from '..dataFunctions';
 
 
-const Home = (props) => {
-  const viewElement = document.createElement('div');
- const h3Element = document.createElement('h3');
- const buttonElement = document.createElement('button');
+export const Home = (props) => {
 
- h3Element.textContent = "Acá irán los filtros";
- h3Element.className = "filtros";
- buttonElement.textContent = "Navegar"
- 
- buttonElement.addEventListener('click', () => (navigateTo('/about', { name : "Paz"})));
- viewElement.appendChild(h3Element);
- viewElement.appendChild(buttonElement);
-  return viewElement;
+  const container = document.createElement("div")
+  container.appendChild(header())
+  container.appendChild(blockApiKey())
+
+
+
+  container.appendChild(renderCard(data))
+  container.appendChild(footer())
+  return container
 }
 
-export default Home
+
+
+
+
+
 
