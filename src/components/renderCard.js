@@ -2,31 +2,31 @@ import { navigateTo } from "../router.js";
 
 
 export const renderCard = (data) => {
-    const contenedor = document.createElement("div");
-    //contenedor.classList.add("divTarjeta")
-    const tarjetas = data.map(campeona => {
-        const tarjeta = document.createElement("ul");  // Crea un elemento "ul" para cada campeona
-        tarjeta.setAttribute("itemscope", "");
-        tarjeta.setAttribute("itemtype", "campeonas lol")
-        tarjeta.classList.add("tarjeta");              // Asigna una clase "tarjeta" para utilizarlo con CSS
+    const divCard = document.createElement("div");
+    //divCard.classList.add("divcard")
+    const cards = data.map(campeona => {
+        const card = document.createElement("ul");  // Crea un elemento "ul" para cada campeona
+        card.setAttribute("itemscope", "");
+        card.setAttribute("itemtype", "campeonas lol")
+        card.classList.add("card");              // Asigna una clase "card" para utilizarlo con CSS
 
-        // Imagen de la tarjeta
-        const imgTarjeta = document.createElement("li"); // Crea un elemento "li" que contiene la imagen
-        const imgElemento = document.createElement("img"); // Crea el elemento "img" y se asignan sus atributos
-        imgElemento.src = campeona.imageUrl;           // Establece la fuente de la imagen
-        imgElemento.alt = campeona.name;               // Texto alternativo si no carga la imagen
-        imgElemento.addEventListener("click", () => {
+        // Imagen de la card
+        const imgcard = document.createElement("li"); // Crea un elemento "li" que contiene la imagen
+        const imgElement = document.createElement("img"); // Crea el elemento "img" y se asignan sus atributos
+        imgElement.src = campeona.imageUrl;           // Establece la fuente de la imagen
+        imgElement.alt = campeona.name;               // Texto alternativo si no carga la imagen
+        imgElement.addEventListener("click", () => {
             navigateTo("/campeona/" + campeona.name, { data: campeona });
 
         });
-        imgElemento.classList.add("imagen");           // Asigna una clase "imagen" para utilizarlo con CSS
-        imgElemento.setAttribute("itemprop", "imagen")
-        imgTarjeta.appendChild(imgElemento);           // Añade la imagen al 'li'
-        tarjeta.appendChild(imgTarjeta);               // Añade el 'li' con la imagen a la tarjeta
+        imgElement.classList.add("imagen");           // Asigna una clase "imagen" para utilizarlo con CSS
+        imgElement.setAttribute("itemprop", "imagen")
+        imgcard.appendChild(imgElement);           // Añade la imagen al 'li'
+        card.appendChild(imgcard);               // Añade el 'li' con la imagen a la card
 
         // Información visible inicialmente
-        const infoTarjeta = document.createElement("li");
-        tarjeta.classList.add("tarjeta");                // Crea un 'li' que contendrá la información adicional
+        const infocard = document.createElement("li");
+        card.classList.add("card");                // Crea un 'li' que contendrá la información adicional
         const infoVisible = [
             { prop: "nombre", text: campeona.name },
             { prop: "descripcion", text: campeona.shortDescription },
@@ -41,16 +41,16 @@ export const renderCard = (data) => {
             infocampeona.id = `elementoVisible${index + 1}`;          // Asignar un ID único a cada <li>
             infocampeona.textContent = item.text;                  // Agregar texto al <li>
             infocampeona.setAttribute("itemprop", item.prop);
-            tarjeta.appendChild(infocampeona);                 // Añadir el <li> al <ul>
+            card.appendChild(infocampeona);                 // Añadir el <li> al <ul>
         });
 
-        tarjeta.appendChild(infoTarjeta);
-        contenedor.appendChild(tarjeta);                  // Añade la información visible a la tarjeta
+        card.appendChild(infocard);
+        divCard.appendChild(card);                  // Añade la información visible a la card
 
 
 
-        return tarjeta;                                      // Retorna el elemento "ul" creado
+        return card;                                      // Retorna el elemento "ul" creado
     });
 
-    return contenedor;
+    return divCard;
 }

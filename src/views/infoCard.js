@@ -1,13 +1,15 @@
- //src/views/About.js
+//src/views/infoCard.js
 
-export const About = (props) => {
+import { navigateTo } from "../router.js";
+
+export const infoCard = (props) => {
   if (!props || !props.data) {
     const errorElement = document.createElement('p');
     errorElement.textContent = 'No se encontró la información de la campeona';
     return errorElement;
   }
 
-  const campeona =  props.data;  //Informacion de la campeona desde la data
+  const campeona = props.data;  //Informacion de la campeona desde la data
 
   const contenedor = document.createElement('div');
   contenedor.classList.add('campeona-detalle');
@@ -17,18 +19,18 @@ export const About = (props) => {
   nombre.textContent = campeona.name;
   contenedor.appendChild(nombre);
 
-    // Imagen de la campeona
-    const imagen = document.createElement('img');
-    imagen.src = campeona.imageUrl;
-    imagen.alt = campeona.name;
-    contenedor.appendChild(imagen);
+  // Imagen de la campeona
+  const imagen = document.createElement('img');
+  imagen.src = campeona.imageUrl;
+  imagen.alt = campeona.name;
+  contenedor.appendChild(imagen);
 
-    // Descripción
-    const descripcion = document.createElement('p');
-    descripcion.textContent = campeona.description;
-    contenedor.appendChild(descripcion);
+  // Descripción
+  const descripcion = document.createElement('p');
+  descripcion.textContent = campeona.description;
+  contenedor.appendChild(descripcion);
 
-    // Otros detalles
+  // Otros detalles
   const detalles = document.createElement('ul');
   const frase = document.createElement('li');
   frase.textContent = `Frase: ${campeona.facts.frase}`;
@@ -48,8 +50,17 @@ export const About = (props) => {
 
   contenedor.appendChild(detalles);
 
+  const buttonChat = document.createElement('button');
+  buttonChat.addEventListener('click', function () {
+    navigateTo("/chat/" + campeona.name)
 
- 
+  });
+
+  buttonChat.id = 'buttonChatId';
+  buttonChat.textContent = "Chat";
+  buttonChat.classList.add('buttonChat');
+
+  contenedor.appendChild(buttonChat)
 
   return contenedor;
 }

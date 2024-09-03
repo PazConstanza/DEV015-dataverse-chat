@@ -253,7 +253,8 @@ ul :hover {
 footer {
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #444;
+    background: transparent;
+    background-color: rgb(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -261,4 +262,26 @@ footer {
     text-align: center;
 }
 
+footer :hover {
+    text-shadow: 0 0 10px #fff8;
+}
 
+/*.joinchat__box {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    width: calc(100vw - var(--sep)* 2);
+    max-width: 400px;
+    max-height: calc(var(--vh) - var(--bottom) - var(--sep));
+    border-radius: calc(var(--s) / 2 + 2px);
+    background: #fff linear-gradient(180deg, var(--color), var(--color) var(--header), var(--bg) var(--header), var(--bg));
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .5);
+    text-align: left;
+    overflow: hidden;
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+    transition: max-height .2s ease-out, opacity .4s ease-out, transform 0s linear .3s;
+}*/

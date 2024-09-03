@@ -49,7 +49,7 @@ const renderView = (pathname, props = {}) => {
     // Buscar la vista correcta en ROUTES para el pathname
     // Manejar rutas dinámicas si es necesario
     let view = ROUTES[pathname];
-
+    console.log(pathname)
     // Si no se encuentra la ruta exacta, buscar rutas dinámicas
     if (!view) {
         for (const route in ROUTES) {
