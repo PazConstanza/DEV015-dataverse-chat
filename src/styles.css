@@ -266,6 +266,25 @@ footer :hover {
     text-shadow: 0 0 10px #fff8;
 }
 
+
+
+
+
+.divChat {
+    width: 25rem;
+    height: 25rem;
+    
+    background-color: white;
+    
+    
+}
+
+.inputChat {
+
+    width: 16rem;
+    height: 5rem;
+    align-items: end;
+}
 /*.joinchat__box {
     display: flex;
     flex-direction: column;

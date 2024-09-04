@@ -16,14 +16,16 @@ export const blockApiKey = () => {
     labelElement.classList.add('labelElement');
     
     const button = document.createElement('button');
+    button.id = 'buttonId';
+    button.textContent = "Guardar";
+    button.classList.add('button');
+
     button.addEventListener('click', function() {
         const apiKey = document.getElementById('inputId').value;    
         setApiKey(apiKey);
     });
 
-    button.id = 'buttonId';
-    button.textContent = "Guardar";
-    button.classList.add('button');
+   
 
 
 

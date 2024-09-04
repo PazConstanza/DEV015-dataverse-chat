@@ -19,11 +19,11 @@ const routes = {
 
 const rootElement = document.getElementById("root");
 rootElement.appendChild(Home()); 
-setRoutes(routes)
+setRoutes(routes);
 
 window.addEventListener("DOMContentLoaded", () => {
     setRootEl(rootElement);
-    onURLChange(window.location)
+    onURLChange(window.location);
 })
 
 window.addEventListener('popstate', (event) => {
@@ -31,4 +31,7 @@ window.addEventListener('popstate', (event) => {
 
 });
 
+window.addEventListener('load', (event) => {
+  onURLChange(window.location);
 
+});

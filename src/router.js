@@ -17,7 +17,7 @@ export const setRoutes = (routes) => {
 
     if (!routes["/error"]) {
 
-        throw new Error("Esta ruta no existe");
+        throw new Error("No existe la ruta error.");
     }
     // assign ROUTES
 
@@ -130,5 +130,12 @@ export const onURLChange = (location) => {
 window.addEventListener("popstate", (event) => {
     // Recupera la ruta actual y cualquier estado almacenado en el historial
     const location = window.location;
-    onURLChange(location); // Llama a tu función onURLChange para manejar la navegación
+    onURLChange(location); // Llama a la funcion onURLChange para manejar la navegacion
+});
+
+window.addEventListener('load', (event) => {
+    // Maneja la actualización de la página
+    const location = window.location;
+    onURLChange(location); // Llama la funcion onURLChange para manejar la actualizacion
+
 });
