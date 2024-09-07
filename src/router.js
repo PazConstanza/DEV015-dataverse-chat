@@ -3,14 +3,14 @@ let ROUTES = {};
 let rootEl;
 
 export const setRootEl = (el) => {
-    // assign rootEl
+    // asigna rootEl
     rootEl = el
 }
 
 export const setRoutes = (routes) => {
     // optional Throw errors if routes isn't an object
 
-    if (typeof routes != "object" || routes == null) {
+    if (typeof routes != "object" || routes === null) {
         throw new Error("routes no es un objeto");
     }
     // optional Throw errors if routes doesn't define an /error route
@@ -40,6 +40,8 @@ const queryStringToObject = (queryString) => {
     // Devolver el objeto
     return paramsObject;
 };
+
+
 
 const renderView = (pathname, props = {}) => {
     // Limpiar el elemento root
@@ -79,63 +81,59 @@ const renderView = (pathname, props = {}) => {
         }
     }
 
-    // Si no se encuentra ninguna vista, navegar a la ruta de error
+    
     if (!view) {
-        navigateTo("/error");
+        navigateTo("/error");                                                               // Si no se encuentra ninguna vista, navegar a la ruta de error
         return;
     }
 
-    // Renderizar la vista correcta pasando los valores de props
-    const component = view(props);
+    
+    const component = view(props);                                                          // Renderizar la vista correcta pasando los valores de props
     root.appendChild(component);
 };
 
-// navigteto actualiza la URL y renderiza la vista correspondiente
-export const navigateTo = (pathname, props = {}) => {
-    const search = window.location.search;
+
+export const navigateTo = (pathname, props = {}) => {                                       // navigteto actualiza la URL y renderiza la vista correspondiente
+    const search = window.location.search;  
     const queryParams = queryStringToObject(search);
 
-    // Combina props con los parámetros de búsqueda
-    const combinedProps = { ...props, ...queryParams };
+    
+    const combinedProps = { ...props, ...queryParams };                                     // Combina props con los parámetros de búsqueda
 
-    // Actualiza el historial de la ventana con pushState
-    window.history.pushState({}, '', pathname);
-
-    // Renderiza la vista con el pathname y los props combinados
-    renderView(pathname, combinedProps);
+   
+    window.history.pushState({ props: combinedProps }, '', pathname);                       // Actualiza el historial de la ventana con pushState y guarda los props (incluyendo data)
+    renderView(pathname, combinedProps);                                                    // Renderiza la vista con el pathname y los props combinados
 };
 
 
-export const onURLChange = (location) => {
+export const onURLChange = (location, state = {}) => {
 
-    //parse the location for the pathname and search params
-    const { pathname, search } = location
-
+    const { pathname, search } = location;                                                   //parse the location for the pathname and search params                         
 
     console.log(location)
 
-    // convert the search params to an object
-    const searchParams = new URLSearchParams(search);
+    const searchParams = new URLSearchParams(search);                                       // convert the search params to an object
     const paramsObject = {};
     searchParams.forEach((value, key) => {
         paramsObject[key] = value;
     });
-    // render the view with the pathname and object
-    renderView(pathname, paramsObject);
-
+    
+    const combinedProps = { ...paramsObject, ...state.props };                              // Mezclar los props del historial con los nuevos params (state incluye el `props.data` si navegas de vuelta)    
+    renderView(pathname, combinedProps);                                                    // Renderiza la vista con el pathname y los props combinados
 
 
 }
 
 window.addEventListener("popstate", (event) => {
-    // Recupera la ruta actual y cualquier estado almacenado en el historial
-    const location = window.location;
-    onURLChange(location); // Llama a la funcion onURLChange para manejar la navegacion
+    
+    const location = window.location;                                                       // Recupera la ruta actual y cualquier estado almacenado en el historial
+    const state = event.state || {};
+    onURLChange(location, state);                                                                  // Llama a la funcion onURLChange para manejar la navegacion
 });
 
-window.addEventListener('load', (event) => {
-    // Maneja la actualización de la página
-    const location = window.location;
-    onURLChange(location); // Llama la funcion onURLChange para manejar la actualizacion
+window.addEventListener('DOMContentLoaded', () => {
+    
+    const location = window.location;                                                       // Maneja la actualización de la página
+    onURLChange(location);                                                                  // Llama la funcion onURLChange para manejar la actualizacion
 
 });

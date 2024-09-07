@@ -3,30 +3,37 @@
 import { navigateTo } from "../router.js";
 
 export const infoCard = (props) => {
-  if (!props || !props.data) {
-    const errorElement = document.createElement('p');
-    errorElement.textContent = 'No se encontró la información de la campeona';
-    return errorElement;
-  }
 
-  const campeona = props.data;  //Informacion de la campeona desde la data
+  if (!props || !props.data) {                                                        // Si no hay datos en props, intenta recuperarlos de window.history.state
+    const state = window.history.state;
+    if (state && state.props && state.props.data) {
+      props = state.props;                                                            // Recupera los datos desde el historial
+
+    } else {
+
+      const errorElement = document.createElement('p');
+      errorElement.textContent = 'No se encontró la información de la campeona';
+      return errorElement;
+    }
+  };
+
+  const campeona = props.data;                                                         // Informacion de la campeona desde la data
 
   const contenedor = document.createElement('div');
   contenedor.classList.add('campeona-detalle');
 
-  // Nombre de la campeona
-  const nombre = document.createElement('h1');
+  const nombre = document.createElement('h1');                                         
   nombre.textContent = campeona.name;
   contenedor.appendChild(nombre);
 
-  // Imagen de la campeona
-  const imagen = document.createElement('img');
+  
+  const imagen = document.createElement('img');                                        
   imagen.src = campeona.imageUrl;
   imagen.alt = campeona.name;
   contenedor.appendChild(imagen);
 
-  // Descripción
-  const descripcion = document.createElement('p');
+
+  const descripcion = document.createElement('p');                                      
   descripcion.textContent = campeona.description;
   contenedor.appendChild(descripcion);
 
@@ -52,13 +59,13 @@ export const infoCard = (props) => {
 
   const buttonChat = document.createElement('button');
   buttonChat.addEventListener('click', function () {
-    navigateTo("/chat/" + campeona.name)
+    navigateTo("/campeona/" + campeona.name + "/chat")
 
   });
 
   buttonChat.id = 'buttonChatId';
-  buttonChat.textContent = "Chat";
-  buttonChat.classList.add('buttonChat');
+  buttonChat.textContent = "Chatea Conmigo";
+  buttonChat.classList.add('button');
 
   contenedor.appendChild(buttonChat)
 

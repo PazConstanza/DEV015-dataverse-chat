@@ -1,36 +1,82 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 body {
-    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.9)), url("./static/img/Fondo.jfif");
+    background-image: url('./static/Grieta\ fondo.jpg');
     background-repeat: no-repeat;
-    background-position: center 5rem;
-    background-size: contain;
+    background-position: center ;
     background-attachment: fixed;
-    background-color: #000000;
-    margin: 3rem;
-    padding: 2rem;
     font-family: "Jost", sans-serif;
     color: #f3f3f3;
+    min-height: 100vh;
     
    
 }
 
-.titulo {
+
+
+
+.headerDiv {
     display: flex;
-    justify-content: center;
+    
     width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
-/*.divTarjeta {
+
+
+
+
+h1 {
+    color: #e2d9f3;
+    width: 100%;
+    text-align: center;
+    font-size: 6em; font-family: "Jost", sans-serif; font-weight: normal;
+    
+       
+}
+
+
+
+h1:hover {
+    text-shadow: 0 0 10px #fff8;
+}
+
+h2 {
+    color: #e2d9f3;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2em; font-family: "Jost", sans-serif; font-style: normal; font-weight: 800;
+    margin-top: 1px;
+    margin-bottom: 2rem;
+}
+
+h2:hover {
+    text-shadow: 0 0 10px #fff8;
+}
+
+.labelElement {
+
+    color: #e2d9f3;
+}
+
+
+
+.containerCard {
     display: flex;
-}*/
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 20px;
+        
+}
 
 
-.tarjetas {
+/*.tarjetas {
     display: block;
     flex-wrap: wrap;
     justify-content: center;
@@ -40,62 +86,38 @@ body {
     font-family: sans-serif;
     columns: auto;
     
-}
-
-h1 {
-    color: #f3f3f3;
-    padding: 1rem;
-    width: 9em;
-    text-align: center;
-    font-size: 6em;
-    font-family: "Jost", sans-serif;
-    font-style: normal;
-}
-
-h1:hover {
-    text-shadow: 0 0 10px #fff8;
-}
+}*/
 
 
 
-h2 {
-    color: #f3f3f3;
-    padding: 1rem;
-    text-align: center;
-    font-size: 2em;
-    font-family: "Jost", sans-serif;
-    font-style: normal;
-    margin-top: 1px;
-    margin-bottom: 2rem;
-}
-
-.filtro-data {
+.filterLi {
     display: inline;
     align-items: center;
-    margin-inline-end: 50px;
+    margin-inline-end: 4rem;
     margin-left: 30px;
     width: 100%;
     text-align: center;
 }
 
-label {
+.labelFilter {
     font-family: dancing-script;
     font-size: 18px;
     color: rgb(240, 222, 240);
     background-color: rgb(0, 0, 0, 0.5);
     padding: 0.5rem;
-    margin-bottom: 6px;
     border-radius: 5px;
     align-items: center;
     margin-right: 0.3rem;
 
 }
 
+
+
 select {
     height: 2rem;
     border-radius: 8px;
     font-size: 14px;
-    border: 2px rgb(201, 159, 220) #f9f1fc;
+    
     padding: 2px;
     background-color: #f1ecf0;
     margin-bottom: 2rem;
@@ -106,151 +128,132 @@ select {
 
 option {
     color: #1d0227;
-    background-color: #ffdff6;
+    background-color: #ece7f0;
 
 }
 
 
-button {
+.button {
     margin-top: 10px;
-    padding: 12px 14px;
+    padding: 8px 8px;
     border-radius: 5px;
-    margin-left: 12rem;
-    margin-right: 12rem;
-    background-color: #f0d7f6;
-    border: 0 solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    outline: 1px solid;
-    outline-color: rgba(29, 8, 34, 0);
-    outline-offset: 0px;
-    text-shadow: none;
-    -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+    margin-left: 1rem;
+    margin-right: 0px;
+    background-color: #c6abf1;
+    border: 10rem;
     outline-color: rgba(255, 255, 255, 0.5);
 
 }
 
-button:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-    outline-offset: 15px;
-    outline-color: rgba(255, 255, 255, 0);
-    text-shadow: 1px 1px 2px #427388;
-
+.button:hover {
+    
+    box-shadow: 0 0 10px #fff8;
+            
 }
 
-#infoMetricas {
-    color: #f3f3f3;
-    margin-top: 4px;
-    background-color: rgb(58, 57, 60);
-    margin: 42px;
-    margin-top: 3rem;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 35px 0px 35px 0px;
-    -moz-border-radius: 35px 0px 35px 0px;
-    -webkit-border-radius: 35px 0px 35px 0px;
-    border: 2px solid #8b45f6;
-}
+
+/*.buttonChat {
+    width: 70px;
+    padding: 10px;
+    background-color: #8bb4f1;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }*/
+  
+  
 
 .imagen {
     display: flex;
     float: left;
-    width: 300px;
-    height: 240px;
+    width: 100%;
+    height: 200px;
 
 
 }
 
-ul {
+ .card{
     display: block;
-    width: 40%;
+    width: 100%; /* Ajuste para que ocupe todo el ancho */
+    max-width: 300px; /* Limitar el ancho máximo */
     list-style-type: none;
     margin: 30px;
+    padding: 10px;
     border-radius: 6px;
-    overflow: hidden;
-    background: transparent;
-    font: 'Courier New', Courier, monospace;
+    background-color: rgba(0, 0, 0, 0.7);
     color: rgb(246, 243, 248);
-    border: 2px linen #f7f7bf;
+    border: 2px solid #f7f7bf;
     text-align: left;
-    background-color: rgb(0, 0, 0, 0.5);
-    gap: 32px;
     transition: transform 0.3s ease-in-out;
     
     
 
 }
 
-ul :hover {
+
+.card :hover {
     text-shadow: 0 0 10px #fff8;
+    
 }
 
-
-#elementoVisible1 {
+ 
+  /* Contenedor principal del chat */
+  #root {
     display: flex;
-    font-size: 2rem;
-    padding: 0rem;
-    text-align: justify;
-    text-align: center;
-    font-family: baskervville SC;
-
-}
-
-#elementoVisible2 {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Caja del chat */
+  .divChat {
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    font-size: 1rem;
-    padding: 0px;
-    text-align: justify;
-    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* Historial de mensajes */
+  .messageHistory {
+    background-color: #e9e9f3;
+    height: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Entrada de texto */
+  .inputChat {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  
+  
+  
+  /* Estilo para dispositivos móviles */
+  @media screen and (max-width: 600px) {
+    .divChat {
+      width: 100%;
+      margin: 10px;
+    }
+  }
+  
 
-
-}
-
-#elementoVisible3 {
-    display: flex;
-    font-size: medium;
-    padding: 1.2rem;
-    text-align: justify;
-    text-align: left;
-    font-style: italic;
-    font-family: dancing-script;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-#elementoVisible4 {
-    display: flex;
-    font-size: medium;
-    padding: 0.5rem;
-    text-align: justify;
-    text-align: left;
-    font-family: baskervville SC;
-}
-
-#elementoVisible5 {
-    display: flex;
-    font-size: medium;
-    padding: 0.5rem;
-    text-align: justify;
-    text-align: left;
-    font-family: baskervville SC;
-}
-
-#elementoVisible6 {
-    display: flex;
-    font-size: medium;
-    padding: 0.5rem;
-    text-align: justify;
-    text-align: left;
-    font-family: baskervville SC;
-}
-
-footer {
+/*footer {
     margin-top: 10px;
     padding: 5px 10px;
     background: transparent;
@@ -285,22 +288,9 @@ footer :hover {
     height: 5rem;
     align-items: end;
 }
-/*.joinchat__box {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    width: calc(100vw - var(--sep)* 2);
-    max-width: 400px;
-    max-height: calc(var(--vh) - var(--bottom) - var(--sep));
-    border-radius: calc(var(--s) / 2 + 2px);
-    background: #fff linear-gradient(180deg, var(--color), var(--color) var(--header), var(--bg) var(--header), var(--bg));
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .5);
-    text-align: left;
-    overflow: hidden;
-    transform: scale3d(0, 0, 0);
-    opacity: 0;
-    transition: max-height .2s ease-out, opacity .4s ease-out, transform 0s linear .3s;
+
+
+.messageHistory {
+    width: 16rem;
+    height: 5rem;
 }*/

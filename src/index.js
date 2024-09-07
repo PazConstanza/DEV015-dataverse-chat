@@ -12,7 +12,7 @@ import { Chat } from './views/chat.js';
 const routes = {
   "/": Home,
   "/campeona/:name": infoCard, // Ruta dinamica 
-  "/chat/:name": Chat,
+  "/campeona/:name/chat": Chat,
   "/error": Error
 };
 
@@ -31,7 +31,4 @@ window.addEventListener('popstate', (event) => {
 
 });
 
-window.addEventListener('load', (event) => {
-  onURLChange(window.location);
 
-});
