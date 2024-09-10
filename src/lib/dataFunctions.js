@@ -1,7 +1,7 @@
 export const filterData = (data, filterBy, value) => {
 
     const dataFiltrada = data.filter(campeona => campeona.facts[filterBy] === value);
-
+    
     return dataFiltrada;
 };
 

@@ -1,3 +1,12 @@
+import { header } from '../components/header.js'
+import { footer } from '../components/footer.js'
+import { blockApiKey } from '../components/blockApiKey.js';
+import { renderCard } from './renderCard.js';
+import { data } from '../data/dataset.js';
+
+
+
+
 export const filter = () => {
 
     const filterDiv = document.createElement('div');
@@ -6,7 +15,7 @@ export const filter = () => {
     const ulFilter = document.createElement('ul')
 
     ulFilter.appendChild(createFilter("Dificultad", ["Seleccione", "Baja", "Media", "Alta"]));
-    ulFilter.appendChild(createFilter("Daño", ["Seleccione", "Físico", "Magíco"]));
+    ulFilter.appendChild(createFilter("Daño", ["Seleccione", "Físico", "Mágico"]));
     ulFilter.appendChild(createFilter("Carril", ["Seleccione", "Bot", "Support", "Mid", "Jungla", "Top"]));
     ulFilter.appendChild(createFilter("Orden", ["Seleccione", "asc", "desc"]));
 
@@ -19,19 +28,36 @@ export const filter = () => {
     button.classList.add('button');
     filterDiv.appendChild(button);
 
-    button.addEventListener('click', function() {
-        const selectDificultad = document.getElementById('Dificultad');    
+
+    button.addEventListener('click', function () {
+        const selectDificultad = document.getElementById('Dificultad');
         selectDificultad.value = "Seleccione";
 
-        const selectDano = document.getElementById('Daño');    
+        const selectDano = document.getElementById('Daño');
         selectDano.value = "Seleccione";
 
-        const selectCarril = document.getElementById('Carril');    
+        const selectCarril = document.getElementById('Carril');
         selectCarril.value = "Seleccione";
 
-        const selectOrden = document.getElementById('Orden');    
+        const selectOrden = document.getElementById('Orden');
         selectOrden.value = "Seleccione";
+
+        
+        const root = document.getElementById("root");
+        root.innerHTML = "";
+        root.appendChild(header());
+        root.appendChild(blockApiKey());
+        root.appendChild(createFilter("Dificultad", ["Seleccione", "Baja", "Media", "Alta"]));
+        root.appendChild(createFilter("Daño", ["Seleccione", "Físico", "Magíco"]));
+        root.appendChild(createFilter("Carril", ["Seleccione", "Bot", "Support", "Mid", "Jungla", "Top"]));
+        root.appendChild(createFilter("Orden", ["Seleccione", "asc", "desc"]));
+        root.appendChild(button);
+        root.appendChild(renderCard(data));
+        root.appendChild(footer());
     });
+
+
+
 
     return filterDiv
 };
@@ -49,7 +75,7 @@ const createFilter = (label, options) => {
 
     const selectFilter = document.createElement('select');
     selectFilter.id = label;
-    
+
 
     // Añadiendo las opciones al select
     options.forEach(optionValue => {
@@ -60,12 +86,14 @@ const createFilter = (label, options) => {
 
 
 
-        
+
     });
 
-        
+
     liFilter.appendChild(selectFilter);
-    
+
 
     return liFilter
 };
+
+

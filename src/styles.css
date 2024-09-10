@@ -7,21 +7,22 @@
 body {
     background-image: url('./static/Grieta\ fondo.jpg');
     background-repeat: no-repeat;
-    background-position: center ;
+    background-position: center;
     background-attachment: fixed;
     font-family: "Jost", sans-serif;
     color: #f3f3f3;
-    min-height: 100vh;
-    
-   
+    /*min-height: 100vh;*/
+    height: auto;
+
+
 }
+
 
 
 
 
 .headerDiv {
     display: flex;
-    
     width: 100%;
     padding: 20px;
     flex-direction: column;
@@ -36,9 +37,11 @@ h1 {
     color: #e2d9f3;
     width: 100%;
     text-align: center;
-    font-size: 6em; font-family: "Jost", sans-serif; font-weight: normal;
-    
-       
+    font-size: 6em;
+    font-family: "Jost", sans-serif;
+    font-weight: normal;
+
+
 }
 
 
@@ -51,7 +54,10 @@ h2 {
     color: #e2d9f3;
     padding: 1rem;
     text-align: center;
-    font-size: 2em; font-family: "Jost", sans-serif; font-style: normal; font-weight: 800;
+    font-size: 2em;
+    font-family: "Jost", sans-serif;
+    font-style: normal;
+    font-weight: 800;
     margin-top: 1px;
     margin-bottom: 2rem;
 }
@@ -62,33 +68,123 @@ h2:hover {
 
 .labelElement {
 
-    color: #e2d9f3;
+    display:flex;
+    margin-left: 1rem;
+    font-family: dancing-script;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
+    border-radius: 5px;
+    align-items: center;
+    color: ghostwhite;
 }
 
+.inputElement {
 
+    display:flex;
+    margin-left: 1rem;
+    font-family: dancing-script;
+    font-size: 18px;
+    font-weight: 100;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem;
+    border-radius: 5px;
+    align-items: center;
+    color: ghostwhite;
+    
+    
+    
+}
+
+.blockApiKey {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 2.2rem;
+}
 
 .containerCard {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-        
+    
+
+}
+
+.divParent {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.chat {
+
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    display: flex;
+    width: 50%;
+    list-style: none;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(246, 243, 248);
+    border: 2px solid #f7f7bf;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
 }
 
 
-/*.tarjetas {
-    display: block;
+.infoCard {
+
+
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    font-family: sans-serif;
-    columns: auto;
-    
-}*/
+    gap: 50px;
+    display: flex;
+    width: 55%;
+    list-style: none;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(246, 243, 248);
+    border: 2px solid #f7f7bf;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
 
 
+.p {
+
+    text-align: center;
+
+}
+
+li{
+list-style: none;
+}
+
+
+.filterDiv {
+    display: flex;
+    margin-top: 4rem;
+}
+
+.imgChat {
+
+    display: flex;
+    float: left;
+    width: 50%;
+    height: 200px;
+}
 
 .filterLi {
     display: inline;
@@ -117,7 +213,6 @@ select {
     height: 2rem;
     border-radius: 8px;
     font-size: 14px;
-    
     padding: 2px;
     background-color: #f1ecf0;
     margin-bottom: 2rem;
@@ -134,25 +229,25 @@ option {
 
 
 .button {
-    margin-top: 10px;
+    height: 2rem;
     padding: 8px 8px;
     border-radius: 5px;
     margin-left: 1rem;
     margin-right: 0px;
-    background-color: #c6abf1;
+    background-color: #dfd3f3;
     border: 10rem;
     outline-color: rgba(255, 255, 255, 0.5);
 
 }
 
 .button:hover {
-    
+
     box-shadow: 0 0 10px #fff8;
-            
+
 }
 
 
-/*.buttonChat {
+.buttonChat {
     width: 70px;
     padding: 10px;
     background-color: #8bb4f1;
@@ -161,9 +256,22 @@ option {
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
-  }*/
-  
-  
+}
+
+.buttonApiKey {
+    
+
+    height: 2rem;
+    padding: 8px 8px;
+    border-radius: 5px;
+    margin-left: 1rem;
+    
+    background-color: #dfd3f3;
+    border: 10rem;
+    outline-color: rgba(255, 255, 255, 0.5);
+
+
+}
 
 .imagen {
     display: flex;
@@ -174,10 +282,10 @@ option {
 
 }
 
- .card{
+.card {
     display: block;
-    width: 100%; /* Ajuste para que ocupe todo el ancho */
-    max-width: 300px; /* Limitar el ancho máximo */
+    width: 20%;
+
     list-style-type: none;
     margin: 30px;
     padding: 10px;
@@ -187,41 +295,42 @@ option {
     border: 2px solid #f7f7bf;
     text-align: left;
     transition: transform 0.3s ease-in-out;
-    
-    
+
+
 
 }
 
 
 .card :hover {
     text-shadow: 0 0 10px #fff8;
-    
+
 }
 
- 
-  /* Contenedor principal del chat */
-  #root {
-    display: flex;
+
+/* Contenedor principal del chat */
+#root {
+    
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-  }
-  
-  /* Caja del chat */
-  .divChat {
+}
+
+/* Caja del chat */
+.divChat {
     background-color: #ffffff;
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
-  }
-  
-  /* Historial de mensajes */
-  .messageHistory {
+    margin-top: 10rem;
+}
+
+/* Historial de mensajes */
+.messageHistory {
     background-color: #e9e9f3;
     height: 300px;
     padding: 15px;
@@ -230,67 +339,34 @@ option {
     margin-bottom: 20px;
     color: #333;
     font-size: 14px;
-  }
-  
-  /* Entrada de texto */
-  .inputChat {
+}
+
+/* Entrada de texto */
+.inputChat {
     width: calc(100% - 80px);
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-right: 10px;
     font-size: 14px;
-  }
-  
-  
-  
-  /* Estilo para dispositivos móviles */
-  @media screen and (max-width: 600px) {
+}
+
+
+
+/* Estilo para dispositivos móviles */
+@media screen and (max-width: 600px) {
+
     .divChat {
-      width: 100%;
-      margin: 10px;
+        width: 100%;
+        margin: 10px;
     }
-  }
-  
-
-/*footer {
-    margin-top: 10px;
-    padding: 5px 10px;
-    background: transparent;
-    background-color: rgb(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
 }
 
-footer :hover {
-    text-shadow: 0 0 10px #fff8;
+@media screen and (max-width: 600px) {
+
+    body {
+        background-size: contain; /* Hace que la imagen se ajuste dentro del contenedor */
+        background-position: top; /* Mueve la imagen hacia arriba en pantallas pequeñas */
+    }
 }
 
-
-
-
-
-.divChat {
-    width: 25rem;
-    height: 25rem;
-    
-    background-color: white;
-    
-    
-}
-
-.inputChat {
-
-    width: 16rem;
-    height: 5rem;
-    align-items: end;
-}
-
-
-.messageHistory {
-    width: 16rem;
-    height: 5rem;
-}*/

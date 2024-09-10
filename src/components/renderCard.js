@@ -22,6 +22,7 @@ export const renderCard = (data) => {
 
 
         });
+
         imgElement.classList.add("imagen");                                    // Asigna una clase "imagen" para utilizarlo con CSS
         imgElement.setAttribute("itemprop", "imagen")
         imgcard.appendChild(imgElement);                                       // Añade la imagen al 'li'
@@ -34,9 +35,9 @@ export const renderCard = (data) => {
             { prop: "nombre", text: campeona.name },
             { prop: "descripcion", text: campeona.shortDescription },
             { prop: "frase", text: campeona.facts.frase },
-            { prop: "dificultad", text: "Dificultad: " + campeona.facts.dificultadDeUso },
-            { prop: "tipoDano", text: "Tipo de Daño: " + campeona.facts.tipoDeDano },
-            { prop: "linea", text: "Carril: " + campeona.facts.carril }
+            { prop: "dificultad", text: "Dificultad: " + campeona.facts.Dificultad },
+            { prop: "tipoDano", text: "Tipo de Daño: " + campeona.facts.Daño },
+            { prop: "linea", text: "Carril: " + campeona.facts.Carril }
         ];
 
         infoVisible.forEach((item) => {                                        // Recorrer el array y crear un <li> para cada elemento

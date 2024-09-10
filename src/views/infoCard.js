@@ -19,22 +19,27 @@ export const infoCard = (props) => {
 
   const campeona = props.data;                                                         // Informacion de la campeona desde la data
 
-  const contenedor = document.createElement('div');
-  contenedor.classList.add('campeona-detalle');
+  const infoCardParent = document.createElement('div')
+  infoCardParent.classList.add('divParent')
 
-  const nombre = document.createElement('h1');                                         
+  const contenedor = document.createElement('div');
+  contenedor.classList.add('infoCard');
+
+  const nombre = document.createElement('h1');
   nombre.textContent = campeona.name;
   contenedor.appendChild(nombre);
 
-  
-  const imagen = document.createElement('img');                                        
+
+  const imagen = document.createElement('img');
   imagen.src = campeona.imageUrl;
   imagen.alt = campeona.name;
+  imagen.classList.add('imgChat')
   contenedor.appendChild(imagen);
 
 
-  const descripcion = document.createElement('p');                                      
+  const descripcion = document.createElement('p');
   descripcion.textContent = campeona.description;
+  descripcion.classList.add('p')
   contenedor.appendChild(descripcion);
 
   // Otros detalles
@@ -44,22 +49,23 @@ export const infoCard = (props) => {
   detalles.appendChild(frase);
 
   const dificultad = document.createElement('li');
-  dificultad.textContent = `Dificultad: ${campeona.facts.dificultadDeUso}`;
+  dificultad.textContent = `Dificultad: ${campeona.facts.Dificultad}`;
   detalles.appendChild(dificultad);
 
   const tipoDano = document.createElement('li');
-  tipoDano.textContent = `Tipo de Daño: ${campeona.facts.tipoDeDano}`;
+  tipoDano.textContent = `Tipo de Daño: ${campeona.facts.Daño}`;
   detalles.appendChild(tipoDano);
 
   const carril = document.createElement('li');
-  carril.textContent = `Carril: ${campeona.facts.carril}`;
+  carril.textContent = `Carril: ${campeona.facts.Carril}`;
   detalles.appendChild(carril);
 
   contenedor.appendChild(detalles);
 
   const buttonChat = document.createElement('button');
   buttonChat.addEventListener('click', function () {
-    navigateTo("/campeona/" + campeona.name + "/chat")
+    console.log(props)
+    navigateTo("/campeona/" + campeona.name + "/chat", props);
 
   });
 
@@ -67,10 +73,12 @@ export const infoCard = (props) => {
   buttonChat.textContent = "Chatea Conmigo";
   buttonChat.classList.add('button');
 
-  contenedor.appendChild(buttonChat)
+  contenedor.appendChild(buttonChat);
+  infoCardParent.appendChild(contenedor);
 
-  return contenedor;
-}
+
+  return infoCardParent
+};
 
 
 
