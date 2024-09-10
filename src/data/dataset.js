@@ -9,9 +9,9 @@ export  const data = [
       "facts": {
           "frase": "Recuerda, un cortador limpio es un artesano habilidoso.",
           "datoCurioso": "Fue diseñada para ser una máquina de combate perfecta.",
-          "dificultadDeUso": "Alta",
-          "tipoDeDano": "Físico",
-          "carril": "Top"
+          "Dificultad": "Alta",
+          "Daño": "Físico",
+          "Carril": "Top"
       }
     },
   
@@ -25,9 +25,9 @@ export  const data = [
       "facts": {
         "frase": "Tu habilidad de pelear me satisface.",
         "datoCurioso": "Es la heredera de la familia Laurent.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Físico",
-        "carril": "Top"
+        "Dificultad": "Media",
+        "Daño": "Físico",
+        "Carril": "Top"
       }
     },
   
@@ -41,9 +41,9 @@ export  const data = [
       "facts": {
         "frase": "La verdad es brutal." ,
         "datoCurioso": "Es una ferviente seguidora del dios de las Islas de Serpiente.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Físico",
-        "carril": "Top"
+        "Dificultad": "Media",
+        "Daño": "Físico",
+        "Carril": "Top"
       }
     },
   
@@ -57,9 +57,9 @@ export  const data = [
       "facts": {
         "frase": "Para Demacia.",
         "datoCurioso": "Valor es un águila gigante que actúa como sus ojos en el cielo.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Físico",
-        "carril": "Bot"
+        "Dificultad": "Alta",
+        "Daño": "Físico",
+        "Carril": "Bot"
       }
     },
   
@@ -73,9 +73,9 @@ export  const data = [
       "facts": {
         "frase": "¿Qué es lo que te mueve?",
         "datoCurioso": "Su espada rota es un símbolo de su pasado.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Físico",
-        "carril": "Top"
+        "Dificultad": "Alta",
+        "Daño": "Físico",
+        "Carril": "Top"
       }
     },
   
@@ -89,9 +89,9 @@ export  const data = [
       "facts": {
         "frase": "No puedo decidirme por un sabor.",
         "datoCurioso": "Ahri es una vastaya, lo que le otorga su aspecto zorruno.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Media",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -105,9 +105,9 @@ export  const data = [
       "facts": {
         "frase": "El ninja perfecto está en todas partes.",
         "datoCurioso": "Abandonó la orden Kinkou para seguir su propio camino.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Alta",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -121,9 +121,9 @@ export  const data = [
       "facts": {
         "frase": "La violencia resuelve todo.",
         "datoCurioso": "Es la hija del general Du Couteau.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Alta",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -137,9 +137,9 @@ export  const data = [
       "facts": {
         "frase": "La luz prevalecerá.",
         "datoCurioso": "Es miembro de la familia Crownguard de Demacia.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -153,9 +153,9 @@ export  const data = [
       "facts": {
         "frase": "La rosa negra florecerá una vez más.",
         "datoCurioso": "Es una de las líderes de la Rosa Negra.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Alta",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -169,9 +169,9 @@ export  const data = [
       "facts": {
         "frase": "El amanecer siempre llega.",
         "datoCurioso": "Es una guerrera del Solari.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Support"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Support"
       }
     },
   
@@ -185,9 +185,9 @@ export  const data = [
       "facts": {
         "frase": "La imaginación es la mejor arma.",
         "datoCurioso": "Su mejor amigo es un hada llamada Pix.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Support"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Support"
       }
     },
   
@@ -201,9 +201,9 @@ export  const data = [
       "facts": {
         "frase": "La tormenta se avecina.",
         "datoCurioso": "Es una entidad espiritual que controla el clima.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Support"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Support"
       }
     },
   
@@ -217,9 +217,9 @@ export  const data = [
       "facts": {
         "frase": "No quiero hacerte daño.",
         "datoCurioso": "Es la hermana gemela de Kayle.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Support"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Support"
       }
     },
   
@@ -233,9 +233,9 @@ export  const data = [
       "facts": {
         "frase": "Las estrellas nos guían.",
         "datoCurioso": "Es una celestial que descendió para ayudar a los mortales.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Mágico",
-        "carril": "Support"
+        "Dificultad": "Baja",
+        "Daño": "Mágico",
+        "Carril": "Support"
       }
     },
   
@@ -249,9 +249,9 @@ export  const data = [
       "facts": {
         "frase": "El frío no me detendrá.",
         "datoCurioso": "Es la líder del clan Garra Invernal.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Mágico",
-        "carril": "Jungla"
+        "Dificultad": "Media",
+        "Daño": "Mágico",
+        "Carril": "Jungla"
       }
     },
   
@@ -265,9 +265,9 @@ export  const data = [
       "facts": {
         "frase": "La luna me guía.",
         "datoCurioso": "Diana fue una vez una fiel seguidora del Solari.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Mágico",
-        "carril": "Mid"
+        "Dificultad": "Media",
+        "Daño": "Mágico",
+        "Carril": "Mid"
       }
     },
   
@@ -281,9 +281,9 @@ export  const data = [
       "facts": {
         "frase": "Atrápalos en mi red.",
         "datoCurioso": "Era una sacerdotisa antes de convertirse en una araña.",
-        "dificultadDeUso": "Alta",
-        "tipoDeDano": "Mágico",
-        "carril": "Jungla"
+        "Dificultad": "Alta",
+        "Daño": "Mágico",
+        "Carril": "Jungla"
       }
     },
   
@@ -297,9 +297,9 @@ export  const data = [
       "facts": {
         "frase": "El bosque me llama.",
         "datoCurioso": "Es una espíritu del bosque que cuida los sueños.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Mágico",
-        "carril": "Jungla"
+        "Dificultad": "Media",
+        "Daño": "Mágico",
+        "Carril": "Jungla"
       }
     },
   
@@ -313,9 +313,9 @@ export  const data = [
       "facts": {
         "frase": "El fuego me alimenta.",
         "datoCurioso": "Es mitad dragona, mitad humana.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Físico",
-        "carril": "Jungla"
+        "Dificultad": "Media",
+        "Daño": "Físico",
+        "Carril": "Jungla"
       }
     },
   
@@ -329,9 +329,9 @@ export  const data = [
       "facts": {
         "frase": "La verdadera fuerza radica en el espíritu.",
         "datoCurioso": "Es la líder de la tribu Avarosan.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Físico",
-        "carril": "Bot"
+        "Dificultad": "Baja",
+        "Daño": "Físico",
+        "Carril": "Bot"
       }
     },
   
@@ -345,9 +345,9 @@ export  const data = [
       "facts": {
         "frase": "La justicia de Piltover siempre prevalecerá.",
         "datoCurioso": "Es la sheriff más joven en la historia de Piltover.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Físico",
-        "carril": "Bot"
+        "Dificultad": "Media",
+        "Daño": "Físico",
+        "Carril": "Bot"
       }
     },
   
@@ -361,9 +361,9 @@ export  const data = [
       "facts": {
         "frase": "¡Vamos a hacer explotar algo!",
         "datoCurioso": "Tiene una personalidad caótica y adora la destrucción.",
-        "dificultadDeUso": "Media",
-        "tipoDeDano": "Físico",
-        "carril": "Bot"
+        "Dificultad": "Media",
+        "Daño": "Físico",
+        "Carril": "Bot"
       }
     },
   
@@ -377,9 +377,9 @@ export  const data = [
       "facts": {
         "frase": "Todo hombre tiene su precio.",
         "datoCurioso": "Es una famosa cazarrecompensas de Aguas Estancadas.",
-        "dificultadDeUso": "Baja",
-        "tipoDeDano": "Físico",
-        "carril": "Bot"
+        "Dificultad": "Baja",
+        "Daño": "Físico",
+        "Carril": "Bot"
       }
     }
   ];

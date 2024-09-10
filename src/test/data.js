@@ -1,3 +1,3 @@
-import dataset from "../data/dataset";
+import { data } from "../data/dataset.js";
 
-export const data = dataset;
+export const fakeData = data;
