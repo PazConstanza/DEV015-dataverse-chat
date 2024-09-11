@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
     root.appendChild(filter());
     root.appendChild(cards);
     root.appendChild(footer())
-
+    // root.append(header(),blockApiKey()), etc
 
 
 

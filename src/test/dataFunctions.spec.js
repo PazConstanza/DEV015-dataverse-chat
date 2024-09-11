@@ -40,12 +40,12 @@ describe('al seleccionar diversas opciones de dificultad, tiene que filtrar seg�
 describe('al seleccionar distintos tipos de daño, debe filtrar según selección', () => {
 
   it('test filtro Tipo de Daño Mágico', () => {
-    const dataFiltroFisico = filterData(fakeData, "tipoDeDano", "Mágico")
+    const dataFiltroFisico = filterData(fakeData, "Daño", "Mágico")
     expect(dataFiltroFisico.length).toBe(14);
   });
 
   it('test filtro Tipo de Daño Físico', () => {
-    const dataFiltroDifMagico = filterData(fakeData, "tipoDeDano", "Físico")
+    const dataFiltroDifMagico = filterData(fakeData, "Daño", "Físico")
     expect(dataFiltroDifMagico.length).toBe(10);
   });
 
@@ -54,27 +54,27 @@ describe('al seleccionar distintos tipos de daño, debe filtrar según selecció
 describe('al seleccionar el tipo de carril, debe filtrar según selección', () => {
 
   it('test filtro Carril Bot', () => {
-    const dataFiltroBot = filterData(fakeData, "carril", "Bot")
+    const dataFiltroBot = filterData(fakeData, "Carril", "Bot")
     expect(dataFiltroBot.length).toBe(5);
   });
 
   it('test filtro Carril Support', () => {
-    const dataFiltroSupport = filterData(fakeData, "carril", "Support")
+    const dataFiltroSupport = filterData(fakeData, "Carril", "Support")
     expect(dataFiltroSupport.length).toBe(5);
   });
 
   it('test filtro Carril Mid', () => {
-    const dataFiltroMid = filterData(fakeData, "carril", "Mid")
+    const dataFiltroMid = filterData(fakeData, "Carril", "Mid")
     expect(dataFiltroMid.length).toBe(6);
   });
 
   it('test filtro Carril Jungla', () => {
-    const dataFiltroJungla = filterData(fakeData, "carril", "Jungla")
+    const dataFiltroJungla = filterData(fakeData, "Carril", "Jungla")
     expect(dataFiltroJungla.length).toBe(4);
   });
 
   it('test filtro Carril Top', () => {
-    const dataFiltroTop = filterData(fakeData, "carril", "Top")
+    const dataFiltroTop = filterData(fakeData, "Carril", "Top")
     expect(dataFiltroTop.length).toBe(4);
   });
 
